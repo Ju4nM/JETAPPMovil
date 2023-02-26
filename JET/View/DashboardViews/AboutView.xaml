@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JET.View.DashboardViews.AboutView" >
+    <ScrollView>
+        <StackLayout>
+            <StackLayout Padding="10,10,10,10">
+                <Frame BackgroundColor="#3B82F6"
+                   CornerRadius="10"
+                   Padding="5,30,5,30">
+                    <Image Source="JetLogo.png"
+               HeightRequest="200"
+               WidthRequest="200"
+               />
+                </Frame>
+            </StackLayout>
+            <StackLayout>
+                <Label Text="Proposito General"
+               TextColor="Black"
+               FontSize="36"
+               HorizontalOptions="Center"
+               FontAttributes="Bold"
+               />
+                <Frame CornerRadius="10"
+                   >
+                    <Label Text="Jet Climatization es un proyecto desarrollado con fines educativos como parte del proyecto integrador que engloba las materias siguientes: Integradora II, Desarrollo Web para I 4.0, Desarrollo Móvil Multiplataforma, Bases de Datos en la Nube y por último pero no menos importante Internet de las cosas. Entre sus funciones tendrá el registro de usuarios, la baja de estos mismos, su inicio de sesión entre otros. Dicha aplicación se desarrollará utilizando las siguientes herramientas: Angular, Xamarin.Forms, C#, BD."
+                   FontSize="16"
+                   FontAttributes="Bold"
+                   TextColor="Black"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Center"
+                       HorizontalOptions="Center"
+                   />
+                </Frame>
+
+            </StackLayout>
+            <StackLayout Padding="10,10,10,10">
+                <Frame BackgroundColor="#202937"
+                   Padding="10,30,10,30"
+                   CornerRadius="10">
+                    <Label Text="Fundadores"
+                       HorizontalOptions="Center"
+                       FontSize="36"
+                       FontAttributes="Bold"
+                       TextColor="White"/>
+                </Frame>
+                <Label Text="Tomás Andrés Espinoza Trujillo"
+                       HorizontalOptions="Center"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       TextColor="Black"/>
+                <Label Text="Juan Enrique Mártinez Flores"
+                       HorizontalOptions="Center"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       TextColor="Black"/>
+                <Label Text="Pamela Jazmin Toledo Valenzuela"
+                       HorizontalOptions="Center"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       TextColor="Black"/>
+            </StackLayout>
+
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

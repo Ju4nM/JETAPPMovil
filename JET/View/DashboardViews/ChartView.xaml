@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JET.View.DashboardViews.ChartView">
+    <Grid>
+        <StackLayout BackgroundColor="#87CEFA">
+            <Label Text="Graficas"
+               TextColor="Black"
+               FontSize="36"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"/>
+            <Image Source="Grafico.png"></Image>
+            <Label Text="Ir a Graficas"
+                   TextColor="Black"
+                   FontSize="25"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"/>
+            <Grid>
+                <Button Text="Ir"
+                    FontSize="25"
+                    TextColor="Black"
+                    BackgroundColor="Beige"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center"
+                    CornerRadius="10"
+                    HeightRequest="50"
+                    WidthRequest="120"/>
+            </Grid>
+            <Label Text="Pagina Web para checar graficas"
+                   FontSize="20"
+                   FontAttributes="Italic"
+                   TextColor="Black"
+                   HorizontalOptions="Center"/>
+        </StackLayout>
+    </Grid>
+</ContentPage>

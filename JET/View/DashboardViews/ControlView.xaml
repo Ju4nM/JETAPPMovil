@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JET.View.DashboardViews.ControlView">
+    <StackLayout>
+        <StackLayout Padding="10,10,10,10">
+            <Frame Padding="10,30,10,30"
+               CornerRadius="10"
+               BackgroundColor="#319CFF">
+                <Label Text="20°"
+                    TextColor="Black"
+                    FontSize="60"
+                    VerticalOptions="CenterAndExpand" 
+                    HorizontalOptions="CenterAndExpand" />
+
+            </Frame>
+            <Label Text="Temperatura Actual"
+                   FontSize="25"
+                   HorizontalOptions="Center"
+                   FontAttributes="Bold"
+                   TextColor="Black"/>
+        </StackLayout>
+        <Frame Padding="5,5,5,5"
+               CornerRadius="10"
+               BackgroundColor="#319CFF">
+            <StackLayout Padding="10,10,10,10"
+                     BackgroundColor="#319CFF">
+                <Grid RowDefinitions="*,*" ColumnDefinitions="*">
+                    <Label Text="Control de Temperaturas"
+                       HorizontalOptions="Center"
+                       TextColor="Black"
+                       FontSize="20"
+                       FontAttributes="Bold"
+                       Grid.Row="0"/>
+                    <Label Text=" Temperatura Actual:"
+                       HorizontalOptions="Start"
+                       FontSize="15"
+                       TextColor="Black"
+                       Grid.Row="1"/>
+                    <Entry Text="Grado"
+                       HeightRequest="50"
+                       WidthRequest="50"
+                       FontSize="15"
+                       Grid.Row="1"
+                       HorizontalOptions="Center"/>
+                    <Label Text="Grado"
+                       FontSize="15"
+                       BackgroundColor="White"
+                       Grid.Row="2"
+                       />
+                    <Button Text="Actualizar Temp."
+                        FontSize="15"
+                        TextColor="Black"
+                        BackgroundColor="Green"
+                        HorizontalOptions="CenterAndExpand"
+                        Grid.Row="3"
+                        CornerRadius="10"/>
+                    <Label Text="Ventilacion"
+                       FontSize="25"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       TextColor="Black"
+                       Grid.Row="4"/>
+                    <Label Text="Estado:"
+                       FontSize="18"
+                       FontAttributes="Bold"
+                       TextColor="Black"
+                       Grid.Row="5"/>
+                    <Entry Text="Apagado"
+                       WidthRequest="240"
+                       FontAttributes="Bold"
+                       Grid.Row="5"
+                       HorizontalOptions="Center"/>
+                    <Label Text="Encender:"
+                       FontSize="18"
+                       TextColor="Black"
+                       Grid.Row="6"
+                       FontAttributes="Bold"/>
+                    <Switch Grid.Row="6"
+                        HorizontalOptions="CenterAndExpand"
+                        />
+                </Grid>
+            </StackLayout>
+        </Frame>
+        <StackLayout Padding="10,10,10,10">
+            <Frame Padding="10,10,10,10"
+                   CornerRadius="10"
+                   BackgroundColor="Yellow">
+                <Label Text="Ver grafica en navegador"
+                       FontSize="20"
+                       TextColor="Black"
+                       HorizontalOptions="Center"/>
+            </Frame>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

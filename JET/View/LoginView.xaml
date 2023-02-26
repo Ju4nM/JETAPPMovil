@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JET.View.LoginView"
+             Visual="Material"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <Grid RowDefinitions="50, *, *">
+            <Image Source="bground.png" Aspect="AspectFill" Grid.RowSpan="3" />
+            <StackLayout Margin="50" Spacing="20" Grid.Row="1"  Grid.RowSpan="2">
+                <Image Source="JetLogo.png" HeightRequest="150" />
+                <Entry Placeholder="Usuario" Text="{Binding UserName}" /> 
+                <Entry Placeholder="Contraseña" Text="{Binding Password}" IsPassword="True" />
+                <Button Text="Iniciar sesion" Padding="10" Command="{Binding LoginCommand}" BackgroundColor="#16a34a" />
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
