@@ -43,15 +43,15 @@ namespace JET.ViewModel
         {
             bool IsValid = ValidateUser;
 
-            if (IsValid)
+            await Shell.Current.GoToAsync("//AboutView");
+            /* if (IsValid)
             {
-                await Navigation.PushAsync(new NavigationPage(new BurgerMenu()));
                 // await Shell.Current.GoToAsync($"//{nameof(ApplicationShell)}");
             }
             else
             {
                 await DisplayAlert("Error", "Usuario y/o contraseña erroneas", "Aceptar");
-            }
+            } */
 
         }
         #endregion

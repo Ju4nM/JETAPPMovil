@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:JET.View"
+             xmlns:views="clr-namespace:JET.View.DashboardViews"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="JET.AppShell">
+
+
+    <FlyoutItem Title="Acerca de">
+        <ShellContent Route="AboutView" ContentTemplate="{DataTemplate views:AboutView}" />
+    </FlyoutItem>
+    
+    <FlyoutItem Title="Control">
+        <ShellContent Route="ControlView" ContentTemplate="{DataTemplate views:ControlView}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Usuarios">
+        <ShellContent Route="UserView" ContentTemplate="{DataTemplate views:UserView}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Graficas">
+        <ShellContent Route="ChartView" ContentTemplate="{DataTemplate views:ChartView}" />
+    </FlyoutItem>
+
+    <MenuItem Text="Logout" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked">
+    </MenuItem>
+    <TabBar>
+        <ShellContent Route="LoginView" ContentTemplate="{DataTemplate local:LoginView}" />
+    </TabBar>
+</Shell>
