@@ -1,96 +1,49 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="JET.View.DashboardViews.ControlView">
-    <StackLayout>
-        <StackLayout Padding="10,10,10,10">
-            <Frame Padding="10,30,10,30"
-               CornerRadius="10"
-               BackgroundColor="#319CFF">
-                <Label Text="20°"
-                    TextColor="Black"
-                    FontSize="60"
-                    VerticalOptions="CenterAndExpand" 
-                    HorizontalOptions="CenterAndExpand" />
+             x:Class="JET.View.DashboardViews.ControlView"
+             Visual="Material">
+    <ScrollView>
+        <StackLayout Padding="10,10,10,10" Spacing="20">
+            <Frame BackgroundColor="#319CFF" Padding="20" CornerRadius="10">
+                <StackLayout Spacing="20">
+                    <Label Text="20°" HorizontalTextAlignment="Center" FontSize="60" FontAttributes="Bold" TextColor="White"/>
+                    <Frame BackgroundColor="White" CornerRadius="100">
+                        <Label Text="Temperatura actual" HorizontalTextAlignment="Center" TextColor="Black" FontSize="20"/>
+                    </Frame>
+                </StackLayout>
+            </Frame>
 
+            <Frame BackgroundColor="#319CFF" Padding="20" CornerRadius="10">
+                <FlexLayout Direction="Column" JustifyContent="SpaceBetween">
+                    <StackLayout>
+                        <Label Text="Control de temperatura" FontSize="30" HorizontalTextAlignment="Center" TextColor="Black"/>
+                        <StackLayout Orientation="Horizontal" Margin="0, 10, 0, 0" Spacing="10">
+                            <Label FontSize="20" Text="Temperatura actual:" TextColor="Black"/>
+                            <Label FontSize="20" Text="30°" FontAttributes="Bold" TextColor="Black" />
+                        </StackLayout>
+                        <Entry Placeholder="Actual" Text="30" Keyboard="Numeric" />
+                    </StackLayout>
+
+                    <StackLayout Margin="0, 30, 0, 0">
+                        <Label Text="Ventilación" FontSize="30" HorizontalTextAlignment="Center" TextColor="Black"/>
+                        <StackLayout Orientation="Horizontal" Margin="0, 10, 0, 0" Spacing="10">
+                            <Label FontSize="20" Text="Estado:" TextColor="Black"/>
+                            <Label FontSize="20" Text="Apagado" FontAttributes="Bold" TextColor="Black" />
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+                            <Label VerticalTextAlignment="Center" Text = "Encender:" TextColor="Black" FontSize="20"/> <Switch/>
+                        </StackLayout>
+                    </StackLayout>
+                </FlexLayout>
             </Frame>
-            <Label Text="Temperatura Actual"
-                   FontSize="25"
-                   HorizontalOptions="Center"
-                   FontAttributes="Bold"
-                   TextColor="Black"/>
-        </StackLayout>
-        <Frame Padding="5,5,5,5"
-               CornerRadius="10"
-               BackgroundColor="#319CFF">
-            <StackLayout Padding="10,10,10,10"
-                     BackgroundColor="#319CFF">
-                <Grid RowDefinitions="*,*" ColumnDefinitions="*">
-                    <Label Text="Control de Temperaturas"
-                       HorizontalOptions="Center"
-                       TextColor="Black"
-                       FontSize="20"
-                       FontAttributes="Bold"
-                       Grid.Row="0"/>
-                    <Label Text=" Temperatura Actual:"
-                       HorizontalOptions="Start"
-                       FontSize="15"
-                       TextColor="Black"
-                       Grid.Row="1"/>
-                    <Entry Text="Grado"
-                       HeightRequest="50"
-                       WidthRequest="50"
-                       FontSize="15"
-                       Grid.Row="1"
-                       HorizontalOptions="Center"/>
-                    <Label Text="Grado"
-                       FontSize="15"
-                       BackgroundColor="White"
-                       Grid.Row="2"
-                       />
-                    <Button Text="Actualizar Temp."
-                        FontSize="15"
-                        TextColor="Black"
-                        BackgroundColor="Green"
-                        HorizontalOptions="CenterAndExpand"
-                        Grid.Row="3"
-                        CornerRadius="10"/>
-                    <Label Text="Ventilacion"
-                       FontSize="25"
-                       FontAttributes="Bold"
-                       HorizontalOptions="Center"
-                       TextColor="Black"
-                       Grid.Row="4"/>
-                    <Label Text="Estado:"
-                       FontSize="18"
-                       FontAttributes="Bold"
-                       TextColor="Black"
-                       Grid.Row="5"/>
-                    <Entry Text="Apagado"
-                       WidthRequest="240"
-                       FontAttributes="Bold"
-                       Grid.Row="5"
-                       HorizontalOptions="Center"/>
-                    <Label Text="Encender:"
-                       FontSize="18"
-                       TextColor="Black"
-                       Grid.Row="6"
-                       FontAttributes="Bold"/>
-                    <Switch Grid.Row="6"
-                        HorizontalOptions="CenterAndExpand"
-                        />
-                </Grid>
-            </StackLayout>
-        </Frame>
-        <StackLayout Padding="10,10,10,10">
-            <Frame Padding="10,10,10,10"
-                   CornerRadius="10"
-                   BackgroundColor="Yellow">
-                <Label Text="Ver grafica en navegador"
-                       FontSize="20"
-                       TextColor="Black"
-                       HorizontalOptions="Center"/>
+
+            <Frame BackgroundColor="#319CFF" Padding="20" CornerRadius="10">
+                <StackLayout>
+                    <Label Text="Grafica del día" FontSize="30" HorizontalTextAlignment="Center" TextColor="Black"/>
+                    <Button Text="Ver en el navegador" BackgroundColor="Yellow" />
+                </StackLayout>
             </Frame>
         </StackLayout>
-    </StackLayout>
+    </ScrollView>
 </ContentPage>

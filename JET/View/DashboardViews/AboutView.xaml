@@ -1,10 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="JET.View.DashboardViews.AboutView" >
+             x:Class="JET.View.DashboardViews.AboutView" 
+             Visual="Material">
     <ScrollView>
-        <StackLayout>
-            <StackLayout Padding="10,10,10,10">
+        <StackLayout Padding="10,10,10,10">
+            <StackLayout>
                 <Frame BackgroundColor="#3B82F6"
                    CornerRadius="10"
                    Padding="5,30,5,30">
@@ -14,7 +15,7 @@
                />
                 </Frame>
             </StackLayout>
-            <StackLayout>
+            <StackLayout Padding="0, 30, 0, 0">
                 <Label Text="Proposito General"
                TextColor="Black"
                FontSize="36"
@@ -34,7 +35,7 @@
                 </Frame>
 
             </StackLayout>
-            <StackLayout Padding="10,10,10,10">
+            <StackLayout Margin="0, 30, 0, 10">
                 <Frame BackgroundColor="#202937"
                    Padding="10,30,10,30"
                    CornerRadius="10">
@@ -59,7 +60,7 @@
                        FontSize="20"
                        FontAttributes="Bold"
                        TextColor="Black"/>
-            </StackLayout>
+           </StackLayout>
 
         </StackLayout>
     </ScrollView>

@@ -5,6 +5,7 @@ using Xamarin.Forms;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using JET.View.BurgerMenu;
+using JET.View.Burger;
 
 namespace JET.ViewModel
 {
@@ -45,6 +46,7 @@ namespace JET.ViewModel
             if (IsValid)
             {
                 await Navigation.PushAsync(new NavigationPage(new BurgerMenu()));
+                // await Shell.Current.GoToAsync($"//{nameof(ApplicationShell)}");
             }
             else
             {
