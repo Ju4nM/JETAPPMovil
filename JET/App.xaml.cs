@@ -2,7 +2,6 @@
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using JET.View;
-using JET.View.BurgerMenu;
 
 namespace JET
 {

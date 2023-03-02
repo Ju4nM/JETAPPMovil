@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace JET.View.Burger
+namespace JET.View.DashboardViews
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class ApplicationShell : Shell
+	public partial class HistoryChanges : ContentPage
 	{
-		public ApplicationShell ()
+		public HistoryChanges ()
 		{
 			InitializeComponent ();
 		}

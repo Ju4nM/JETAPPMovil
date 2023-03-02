@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JET.View.DashboardViews.HistoryChanges">
+    <ContentPage.Content>
+        <StackLayout Padding="20">
+            <Label Text="Historial de cambios" HorizontalTextAlignment="Center" FontSize="30" TextColor="black" Margin="0, 0, 0, 20" />
+            <StackLayout Spacing="30">
+                <Frame BackgroundColor="#319CFF" CornerRadius="5">
+                    <StackLayout Spacing="20">
+                        <FlexLayout JustifyContent="SpaceBetween" AlignItems="Center">
+                            <Label TextColor="black" FontSize="20" FontAttributes="Bold" Text="Apagado"/>
+                            <Label TextColor="black" FontSize="18" Text="02 - 03 - 2023"/>
+                        </FlexLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Responsable:" FontSize="15" TextColor="black" FontAttributes="bold" />
+                            <Label Text="The_Rev_67" TextColor="black" FontSize="15" />
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+                <Frame BackgroundColor="#319CFF" CornerRadius="5">
+                    <StackLayout Spacing="20">
+                        <FlexLayout JustifyContent="SpaceBetween" AlignItems="Center">
+                            <Label TextColor="black" FontSize="20" FontAttributes="Bold" Text="Encendido"/>
+                            <Label TextColor="black" FontSize="18" Text="02 - 03 - 2023"/>
+                        </FlexLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Responsable:" FontSize="15" TextColor="black" FontAttributes="bold" />
+                            <Label Text="Peraza" TextColor="black" FontSize="15" />
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+                <Frame BackgroundColor="#319CFF" CornerRadius="5">
+                    <StackLayout Spacing="20">
+                        <FlexLayout JustifyContent="SpaceBetween" AlignItems="Center">
+                            <Label TextColor="black" FontSize="20" FontAttributes="Bold" Text="Apagado"/>
+                            <Label TextColor="black" FontSize="18" Text="02 - 03 - 2023"/>
+                        </FlexLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Responsable:" FontSize="15" TextColor="black" FontAttributes="bold" />
+                            <Label Text="Cesar" TextColor="black" FontSize="15" />
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

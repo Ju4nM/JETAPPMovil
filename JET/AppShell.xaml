@@ -3,14 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:JET.View"
              xmlns:views="clr-namespace:JET.View.DashboardViews"
-             NavigationPage.HasNavigationBar="False"
              x:Class="JET.AppShell">
 
+
+    <TabBar>
+        <ShellContent Route="LoginView" ContentTemplate="{DataTemplate local:LoginView}" />
+    </TabBar>
 
     <FlyoutItem Title="Acerca de">
         <ShellContent Route="AboutView" ContentTemplate="{DataTemplate views:AboutView}" />
     </FlyoutItem>
-    
+
     <FlyoutItem Title="Control">
         <ShellContent Route="ControlView" ContentTemplate="{DataTemplate views:ControlView}" />
     </FlyoutItem>
@@ -23,9 +26,15 @@
         <ShellContent Route="ChartView" ContentTemplate="{DataTemplate views:ChartView}" />
     </FlyoutItem>
 
+    <FlyoutItem Title="Historiales">
+        <Tab Title="Temperaturas" Icon="temperaturaIcon.png">
+            <ShellContent Route="History" ContentTemplate="{DataTemplate views:AboutView}" />
+        </Tab>
+        <Tab Title="Cambios" Icon="changeIcon.png">
+            <ShellContent Route="History" ContentTemplate="{DataTemplate views:HistoryChanges}" />
+        </Tab>
+    </FlyoutItem>
+
     <MenuItem Text="Logout" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked">
     </MenuItem>
-    <TabBar>
-        <ShellContent Route="LoginView" ContentTemplate="{DataTemplate local:LoginView}" />
-    </TabBar>
 </Shell>
