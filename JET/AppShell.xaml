@@ -5,6 +5,43 @@
              xmlns:views="clr-namespace:JET.View.DashboardViews"
              x:Class="JET.AppShell">
 
+    <Shell.Resources>
+        <ResourceDictionary>
+            <Style Class="FlyoutItemLabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="White"></Setter>
+            </Style>
+            <Style Class="FlyoutItemLayoutStyle" TargetType="Layout" ApplyToDerivedTypes="True">
+                <Setter Property="VisualStateManager.VisualStateGroups">
+                    <VisualStateGroupList>
+                        <VisualStateGroup x:Name="CommonStates">
+                            <VisualState x:Name="Normal">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{x:OnPlatform UWP=Transparent, iOS=White}" />
+                                    <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="{StaticResource Primary}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                            <VisualState x:Name="Selected">
+                                <VisualState.Setters>
+                                    <Setter Property="BackgroundColor" Value="{StaticResource Primary}" />
+                                </VisualState.Setters>
+                            </VisualState>
+                        </VisualStateGroup>
+                    </VisualStateGroupList>
+                </Setter>
+            </Style>
+
+            
+            <!--For header-->
+            
+        </ResourceDictionary>
+    </Shell.Resources>
+
+    <!--<Shell.MenuItemTemplate>
+        <DataTemplate>
+            --><!-- Layout for menu item to differentiate from clickable flyout items --><!--
+            <Label>Hola soy el header</Label>
+        </DataTemplate>
+    </Shell.MenuItemTemplate>-->
 
     <TabBar>
         <ShellContent Route="LoginView" ContentTemplate="{DataTemplate local:LoginView}" />
@@ -19,7 +56,7 @@
     </FlyoutItem>
 
     <FlyoutItem Title="Usuarios">
-        <ShellContent Route="UserView" ContentTemplate="{DataTemplate views:UserView}" />
+        <ShellContent Route="UserView" ContentTemplate="{DataTemplate views:UserListView}" />
     </FlyoutItem>
 
     <FlyoutItem Title="Graficas">
@@ -28,7 +65,7 @@
 
     <FlyoutItem Title="Historiales">
         <Tab Title="Temperaturas" Icon="temperaturaIcon.png">
-            <ShellContent Route="History" ContentTemplate="{DataTemplate views:AboutView}" />
+            <ShellContent Route="History" ContentTemplate="{DataTemplate views:TemperatureHistoryView}" />
         </Tab>
         <Tab Title="Cambios" Icon="changeIcon.png">
             <ShellContent Route="History" ContentTemplate="{DataTemplate views:HistoryChanges}" />

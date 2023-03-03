@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Visual="Material"
+             Title="Usuarios"
+             x:Class="JET.View.DashboardViews.UserListView">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Command="{Binding AddUserCommand}" />
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <Grid>
+            <StackLayout>
+                <Frame BackgroundColor="#62B6F3"
+                   CornerRadius="15">
+                    <Label Text="Lista de Usuarios"
+                       FontSize="25"
+                       Padding="15"
+                       TextColor="Black"
+                       FontAttributes="Bold"
+                       HorizontalOptions="Center"
+                       />
+                </Frame>
+            </StackLayout>
+            <StackLayout Padding="0,30">
+                <Grid Padding="0,100">
+                    <TableView Margin="10" BackgroundColor="AliceBlue">
+                        <TableRoot>
+                            <TableSection>
+                                <ViewCell>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Administrador"
+                                           FontSize="20"
+                                           TextColor="Black"
+                                           FontAttributes="Bold"
+                                           HorizontalOptions="CenterAndExpand"/>
+                                    </StackLayout>
+                                </ViewCell>
+                                <ViewCell>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Juan Enrique Martínez Flores"
+                                           FontSize="20"
+                                           TextColor="Black"
+                                           FontAttributes="Italic"/>
+                                        <Image Source="https://i.ibb.co/6vb6HV1/avatar.png"
+                                           HorizontalOptions="EndAndExpand"/>
+                                    </StackLayout>
+                                </ViewCell>
+                                <ViewCell>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Usuarios"
+                                           FontSize="20"
+                                           TextColor="Black"
+                                           FontAttributes="Bold"
+                                           HorizontalOptions="CenterAndExpand"/>
+                                    </StackLayout>
+                                </ViewCell>
+                                <ViewCell>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Tomás Andrés Espinoza Trujillo"
+                                           TextColor="Black"
+                                           FontSize="18"/>
+                                        <Image Source="https://i.ibb.co/m8cfWVB/servicio-al-cliente.png"
+                                           HorizontalOptions="EndAndExpand"/>
+                                    </StackLayout>
+                                </ViewCell>
+                                <ViewCell>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Pamela Jazmin Toledo Valenzuela"
+                                           TextColor="Black"
+                                           FontSize="18"/>
+                                        <Image Source="https://i.ibb.co/gyrFNrW/mujer.png"
+                                           HorizontalOptions="EndAndExpand"/>
+                                    </StackLayout>
+                                </ViewCell>
+                                <ViewCell>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Gilda Lorena Duarte Guerrero"
+                                           TextColor="Black"
+                                           FontSize="18"/>
+                                        <Image Source="https://i.ibb.co/gyrFNrW/mujer.png"
+                                           HorizontalOptions="EndAndExpand"/>
+                                    </StackLayout>
+                                </ViewCell>
+                                <ViewCell>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Miguel Alejandro Lopéz Humo"
+                                           TextColor="Black"
+                                           FontSize="18"/>
+                                        <Image Source="https://i.ibb.co/m8cfWVB/servicio-al-cliente.png"
+                                           HorizontalOptions="EndAndExpand"/>
+                                    </StackLayout>
+                                </ViewCell>
+                            </TableSection>
+                        </TableRoot>
+                    </TableView>
+                </Grid>
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

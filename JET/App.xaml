@@ -8,6 +8,7 @@
                 <Setter Property="TextColor" Value="White" />
                 <Setter Property="FontSize" Value="20" />
             </Style>
+            <Color x:Key="Primary">#3b82f6</Color>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

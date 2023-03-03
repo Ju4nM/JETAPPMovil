@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Title="Historial de temperaturas"
+             Visual="Material"
+             x:Class="JET.View.DashboardViews.TemperatureHistoryView">
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid>
+                <StackLayout>
+                    <Frame BackgroundColor="#87CEFA"
+                       CornerRadius="15">
+                        <Label Text="Historial Temperaturas"
+                       FontSize="25"
+                       FontAttributes="Bold"
+                       TextColor="Black"
+                       Padding="20"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"/>
+                    </Frame>
+                </StackLayout>
+                <StackLayout>
+                    <Grid RowDefinitions="*,*" ColumnDefinitions="*,*">
+                        <Label Text="Temperatura"
+                           FontSize="20"
+                           Margin="30,20,10,0"
+                           Padding="10,10,10,10"
+                           TextColor="Black"
+                           Grid.Row="2"/>
+                        <Entry Placeholder="20°"
+                           BackgroundColor="#87CEFA"
+                           FontSize="20"
+                           Margin="5,10,30,0"
+                           TextColor="Black"
+                           Grid.Row="2"
+                           Grid.Column="1"
+                           />
+                    </Grid>
+                    <Grid>
+                        <TableView Margin="30">
+                            <TableRoot>
+                                <TableSection>
+                                    <ViewCell>
+                                        <StackLayout>
+                                            <Label Text="Historial"
+                                               FontSize="20"
+                                               FontAttributes="Bold"
+                                               HorizontalOptions="CenterAndExpand"
+                                               TextColor="Black"/>
+                                        </StackLayout>
+                                    </ViewCell>
+                                    <ViewCell>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Temepratura"
+                                               TextColor="Black"
+                                               FontAttributes="Bold"/>
+                                            <Label Text="Grados"
+                                               FontAttributes="Bold"
+                                               TextColor="Black"
+                                               HorizontalOptions="EndAndExpand"/>
+                                        </StackLayout>
+                                    </ViewCell>
+                                    <ViewCell>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Normal"
+                                               TextColor="Black"/>
+                                            <Label Text="20°"
+                                               TextColor="Black"
+                                               HorizontalOptions="EndAndExpand"/>
+                                        </StackLayout>
+                                    </ViewCell>
+                                    <ViewCell>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Normal"
+                                               TextColor="Black"/>
+                                            <Label Text="18°"
+                                               TextColor="Black"
+                                               HorizontalOptions="EndAndExpand"/>
+                                        </StackLayout>
+                                    </ViewCell>
+                                    <ViewCell>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Anormal"
+                                               TextColor="Black"/>
+                                            <Label Text="30°"
+                                               TextColor="Black"
+                                               HorizontalOptions="EndAndExpand"/>
+                                        </StackLayout>
+                                    </ViewCell>
+                                    <ViewCell>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Normal"
+                                               TextColor="Black"/>
+                                            <Label Text="19°"
+                                               TextColor="Black"
+                                               HorizontalOptions="EndAndExpand"/>
+                                        </StackLayout>
+                                    </ViewCell>
+                                    <ViewCell>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Anormal"
+                                               TextColor="Black"/>
+                                            <Label Text="31°"
+                                               TextColor="Black"
+                                               HorizontalOptions="EndAndExpand"/>
+                                        </StackLayout>
+                                    </ViewCell>
+                                </TableSection>
+                            </TableRoot>
+                        </TableView>
+                    </Grid>
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
