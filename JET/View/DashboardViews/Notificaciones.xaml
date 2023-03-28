@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JET.View.DashboardViews.Notificaciones">
+    <ContentPage.Content>
+        <StackLayout Padding="30">
+            <Label Text="Notificaciones" HorizontalTextAlignment="Center" FontSize="30" TextColor="black" Margin="0, 0, 0, 20" />
+            <StackLayout Spacing="30">
+                <Frame BackgroundColor="#319CFF" CornerRadius="10">
+                    <StackLayout Spacing="30">
+                        <FlexLayout JustifyContent="SpaceBetween" AlignItems="Center">
+                            <Label TextColor="black" FontSize="20" FontAttributes="Bold" Text="Fecha"/>
+                            <Label TextColor="black" FontSize="18" Text="12-03-2023"/>
+                        </FlexLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Descripcion:" FontSize="15" TextColor="black" FontAttributes="bold" />
+                            <Label Text="{Binding Descripcion}" TextColor="black" FontSize="15" />
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+                <Frame BackgroundColor="Red" CornerRadius="10">
+                    <StackLayout Spacing="30">
+                        <FlexLayout JustifyContent="SpaceBetween" AlignItems="Center">
+                            <Label TextColor="black" FontSize="20" FontAttributes="Bold" Text="Fecha"/>
+                            <Label TextColor="black" FontSize="18" Text="11 - 03 - 2023"/>
+                        </FlexLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Descripcion:" FontSize="15" TextColor="black" FontAttributes="bold" />
+                            <Label Text="La Temperatura es Alta" TextColor="black" FontSize="15" />
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+                <Frame BackgroundColor="#319CFF" CornerRadius="10">
+                    <StackLayout Spacing="30">
+                        <FlexLayout JustifyContent="SpaceBetween" AlignItems="Center">
+                            <Label TextColor="black" FontSize="20" FontAttributes="Bold" Text="Fecha"/>
+                            <Label TextColor="black" FontSize="18" Text="10 - 03 - 2023"/>
+                        </FlexLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Descripcion:" FontSize="15" TextColor="black" FontAttributes="bold" />
+                            <Label Text="{Binding Descripcion}" TextColor="black" FontSize="15" />
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+                <Frame BackgroundColor="Yellow" CornerRadius="10">
+                    <StackLayout Spacing="30">
+                        <FlexLayout JustifyContent="SpaceBetween" AlignItems="Center">
+                            <Label TextColor="black" FontSize="20" FontAttributes="Bold" Text="Fecha"/>
+                            <Label TextColor="black" FontSize="18" Text="09 - 03 - 2023"/>
+                        </FlexLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Descripcion:" FontSize="15" TextColor="black" FontAttributes="bold" />
+                            <Label Text="La Temperaturs es Baja" TextColor="black" FontSize="15" />
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

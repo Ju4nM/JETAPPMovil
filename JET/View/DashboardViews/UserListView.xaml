@@ -5,14 +5,15 @@
              Title="Usuarios"
              x:Class="JET.View.DashboardViews.UserListView">
 
-    <ContentPage.ToolbarItems>
+    <!--<ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Command="{Binding AddUserCommand}" />
-    </ContentPage.ToolbarItems>
-    <ContentPage.Content>
+    </ContentPage.ToolbarItems>-->
+    <ScrollView>
+
         <Grid>
             <StackLayout>
-                <Frame BackgroundColor="#62B6F3"
-                   CornerRadius="15">
+                <Frame BackgroundColor="#319CFF"
+                   CornerRadius="10" Padding="9" Margin="10">
                     <Label Text="Lista de Usuarios"
                        FontSize="25"
                        Padding="15"
@@ -22,80 +23,46 @@
                        />
                 </Frame>
             </StackLayout>
-            <StackLayout Padding="0,30">
-                <Grid Padding="0,100">
-                    <TableView Margin="10" BackgroundColor="AliceBlue">
-                        <TableRoot>
-                            <TableSection>
-                                <ViewCell>
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="Administrador"
-                                           FontSize="20"
-                                           TextColor="Black"
-                                           FontAttributes="Bold"
-                                           HorizontalOptions="CenterAndExpand"/>
+
+            <StackLayout Padding="10,100,10,10">
+                <CollectionView ItemsSource="{Binding Users}">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Orientation="Vertical" Spacing="30" Padding="0,10,0,0">
+                                <Frame BackgroundColor="#62B6F3" CornerRadius="10">
+                                    <StackLayout Spacing="30">
+                                        <FlexLayout JustifyContent="SpaceBetween" AlignItems="Center">
+                                            <Label TextColor="black" FontSize="20" FontAttributes="Bold" Text="Nombre:"/>
+                                            <Label TextColor="black" FontSize="18" FontAttributes="Bold" Text="{Binding names}"
+                                                   Padding="0,0,100,0"/>
+                                        </FlexLayout>
+                                        <StackLayout Orientation="Horizontal" Spacing="20">
+                                            <Label TextColor="Black" FontSize="17" FontAttributes="Bold" Text="Apellido Pat:"/>
+                                            <Label TextColor="Black" FontSize="17" Text="{Binding firstLastName}"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" Spacing="20">
+                                            <Label TextColor="Black" FontSize="17" FontAttributes="Bold" Text="Apellido Mat:"/>
+                                            <Label TextColor="Black" FontSize="17" Text="{Binding secondLastName}"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" Spacing="20">
+                                            <Label Text="UserName:" FontSize="17" TextColor="black" FontAttributes="bold" />
+                                            <Label Text="{Binding userName}" TextColor="black" FontSize="17" />
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal" Spacing="20">
+                                            <Label Text="Email:" FontSize="17" TextColor="black" FontAttributes="bold" />
+                                            <Label Text="{Binding email}" TextColor="black" FontSize="17" />
+                                        </StackLayout>
+                                        <!--<StackLayout Orientation="Horizontal">
+                                            <Button HorizontalOptions="EndAndExpand" Text="Ver mas" Command="{Binding Vercommand}"/>
+                                        </StackLayout>-->
                                     </StackLayout>
-                                </ViewCell>
-                                <ViewCell>
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="Juan Enrique Martínez Flores"
-                                           FontSize="20"
-                                           TextColor="Black"
-                                           FontAttributes="Italic"/>
-                                        <Image Source="https://i.ibb.co/6vb6HV1/avatar.png"
-                                           HorizontalOptions="EndAndExpand"/>
-                                    </StackLayout>
-                                </ViewCell>
-                                <ViewCell>
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="Usuarios"
-                                           FontSize="20"
-                                           TextColor="Black"
-                                           FontAttributes="Bold"
-                                           HorizontalOptions="CenterAndExpand"/>
-                                    </StackLayout>
-                                </ViewCell>
-                                <ViewCell>
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="Tomás Andrés Espinoza Trujillo"
-                                           TextColor="Black"
-                                           FontSize="18"/>
-                                        <Image Source="https://i.ibb.co/m8cfWVB/servicio-al-cliente.png"
-                                           HorizontalOptions="EndAndExpand"/>
-                                    </StackLayout>
-                                </ViewCell>
-                                <ViewCell>
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="Pamela Jazmin Toledo Valenzuela"
-                                           TextColor="Black"
-                                           FontSize="18"/>
-                                        <Image Source="https://i.ibb.co/gyrFNrW/mujer.png"
-                                           HorizontalOptions="EndAndExpand"/>
-                                    </StackLayout>
-                                </ViewCell>
-                                <ViewCell>
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="Gilda Lorena Duarte Guerrero"
-                                           TextColor="Black"
-                                           FontSize="18"/>
-                                        <Image Source="https://i.ibb.co/gyrFNrW/mujer.png"
-                                           HorizontalOptions="EndAndExpand"/>
-                                    </StackLayout>
-                                </ViewCell>
-                                <ViewCell>
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="Miguel Alejandro Lopéz Humo"
-                                           TextColor="Black"
-                                           FontSize="18"/>
-                                        <Image Source="https://i.ibb.co/m8cfWVB/servicio-al-cliente.png"
-                                           HorizontalOptions="EndAndExpand"/>
-                                    </StackLayout>
-                                </ViewCell>
-                            </TableSection>
-                        </TableRoot>
-                    </TableView>
-                </Grid>
+                                </Frame>
+
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
             </StackLayout>
         </Grid>
-    </ContentPage.Content>
+    </ScrollView>
 </ContentPage>

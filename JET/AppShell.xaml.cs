@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JET.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,11 +16,7 @@ namespace JET
         public AppShell()
         {
             InitializeComponent();
-        }
-
-        private async void OnMenuItemClicked(object sender, EventArgs e)
-        {
-            await Shell.Current.GoToAsync("//LoginView");
+            BindingContext = new VMAppShell(Navigation);
         }
     }
 }

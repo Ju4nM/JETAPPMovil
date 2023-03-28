@@ -16,7 +16,7 @@ namespace JET.View.DashboardViews
 		public UserListView ()
 		{
 			InitializeComponent ();
-			BindingContext = new VMUsers(Navigation);
-		}
-	}
+            BindingContext = new VMUsers(Navigation);
+        }
+    }
 }

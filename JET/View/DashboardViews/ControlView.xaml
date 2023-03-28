@@ -5,10 +5,11 @@
              Title="Control"
              Visual="Material">
     <ScrollView>
+
         <StackLayout Padding="10,10,10,10" Spacing="20">
             <Frame BackgroundColor="#319CFF" Padding="20" CornerRadius="10">
                 <StackLayout Spacing="20">
-                    <Label Text="20°" HorizontalTextAlignment="Center" FontSize="60" FontAttributes="Bold" TextColor="White"/>
+                    <Label Text="{Binding TemActual.temperature}" HorizontalTextAlignment="Center" FontSize="60" FontAttributes="Bold" TextColor="White"/>
                     <Frame BackgroundColor="White" CornerRadius="100">
                         <Label Text="Temperatura actual" HorizontalTextAlignment="Center" TextColor="Black" FontSize="20"/>
                     </Frame>
@@ -21,19 +22,20 @@
                         <Label Text="Control de temperatura" FontSize="30" HorizontalTextAlignment="Center" TextColor="Black"/>
                         <StackLayout Orientation="Horizontal" Margin="0, 10, 0, 0" Spacing="10">
                             <Label FontSize="20" Text="Temperatura actual:" TextColor="Black"/>
-                            <Label FontSize="20" Text="30°" FontAttributes="Bold" TextColor="Black" />
+                            <Label FontSize="20" Text="{Binding TemActual.temperature}" FontAttributes="Bold" TextColor="Black" />
                         </StackLayout>
-                        <Entry Placeholder="Actual" Text="30" Keyboard="Numeric" />
+                        <Entry Placeholder="Limite" Text="{Binding Tem}" Keyboard="Numeric" />
                     </StackLayout>
 
                     <StackLayout Margin="0, 30, 0, 0">
                         <Label Text="Ventilación" FontSize="30" HorizontalTextAlignment="Center" TextColor="Black"/>
                         <StackLayout Orientation="Horizontal" Margin="0, 10, 0, 0" Spacing="10">
                             <Label FontSize="20" Text="Estado:" TextColor="Black"/>
-                            <Label FontSize="20" Text="Apagado" FontAttributes="Bold" TextColor="Black" />
+                            <Label FontSize="20" Text="{Binding Testigo}" FontAttributes="Bold" TextColor="Black" />
                         </StackLayout>
                         <StackLayout Orientation="Horizontal" Spacing="10">
-                            <Label VerticalTextAlignment="Center" Text = "Encender:" TextColor="Black" FontSize="20"/> <Switch/>
+                            <Label VerticalTextAlignment="Center" Text = "Encender:" TextColor="Black" FontSize="20"/>
+                            <Switch IsToggled="{Binding limitTemperaturas.rele.state}"/>
                         </StackLayout>
                     </StackLayout>
                 </FlexLayout>

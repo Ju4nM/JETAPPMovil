@@ -11,12 +11,12 @@ using Xamarin.Forms.Xaml;
 namespace JET.View.DashboardViews
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ControlView : ContentPage
+    public partial class Notificaciones : ContentPage
     {
-        public ControlView()
+        public Notificaciones()
         {
             InitializeComponent();
-            BindingContext = new VMTemperatures(Navigation);
+            BindingContext = new VMNotificaciones(Navigation);
         }
     }
 }

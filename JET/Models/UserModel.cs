@@ -2,45 +2,24 @@
 using System.Collections.Generic;
 using System.Text;
 using JET.ViewModel;
+using Newtonsoft.Json;
 
 namespace JET.Models
 {
-    class UserModel: BaseViewModel
+    public class UserModel: BaseViewModel
     {
         // Necesitan actualizacion
-        public string _firstName;
-        public string _firstLastName;
-        public string _userName;
-        public string id;
-
+        public string names { get; set; }
+        public string firstLastName { get; set; }
+        public string userName { get; set; }
+        [JsonProperty("_id")]
+        public string id { get; set; }
+        public string password { get; set; }
         // No necesitan actualizarse en la vista
-        public string secondName;
-        public string secondLastName;
-        public string email;
-        public bool userType;
-        public bool gender;
-
-        public string firstName
-        {
-            get => _firstName; 
-            set => SetProperty(ref _firstName, value); 
-        }
-
-        public string firstLastName
-        {
-            get => _firstLastName; 
-            set => SetProperty(ref _firstLastName, value); 
-        }
-        public string userName
-        {
-            get => _userName; 
-            set => SetProperty(ref _userName, value); 
-        }
-        public string _id
-        {
-            get => id; 
-            set => SetProperty(ref id, value); 
-        }
-
+        public string SecondName { get; set; }
+        public string secondLastName { get; set; }
+        public string email { get; set; }
+        public bool userType { get; set; }
+        public bool Gender { get; set; }
     }
 }

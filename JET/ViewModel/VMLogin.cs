@@ -4,6 +4,9 @@ using System.Text;
 using Xamarin.Forms;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Newtonsoft.Json;
+using System.Net.Http;
+using System.Net;
 
 namespace JET.ViewModel
 {
@@ -13,9 +16,18 @@ namespace JET.ViewModel
         #region Variables
         string _userName;
         string _password;
+
+        //List<UserModel> _usuario;
         #endregion
 
         #region Objetos
+        /*public List<UserModel> Usuario 
+        {
+            get { return _usuario; }
+            set { SetProperty(ref _usuario, value);
+                OnpropertyChanged();
+            }
+        }*/
         public string UserName
         {
             get { return _userName; }
@@ -29,28 +41,55 @@ namespace JET.ViewModel
         }
         #endregion
 
-        public VMLogin (INavigation navigation)
+        public VMLogin(INavigation navigation)
         {
             Navigation = navigation;
         }
-
         #region Procesos
-        public bool ValidateUser => UserName == "admin" && Password == "123";
-
-        public async Task Login ()
+        public class userAuth
         {
-            bool IsValid = ValidateUser;
 
-            await Shell.Current.GoToAsync("//AboutView");
-            /* if (IsValid)
+            public string userName { get; set; }
+            public string password { get; set; }
+        }
+        public class userResponse
+        {
+            public string id { get; set; }
+            public string userName { get; set; }
+            public string userType { get; set; }
+        }
+        public async Task Login()
+        {
+
+            var user = new userAuth()
             {
-                // await Shell.Current.GoToAsync($"//{nameof(ApplicationShell)}");
+                userName = UserName,
+                password = Password
+            };
+            var json = JsonConvert.SerializeObject(user);
+            var contentjson = new StringContent(json, Encoding.UTF8, "application/json");
+            Uri requestUri = new Uri("https://jetapi.onrender.com/auth");
+            var cliente = new HttpClient();
+            var response = await cliente.PostAsync(requestUri, contentjson);
+            var resultado = await response.Content.ReadAsStringAsync();
+            var respuesta = JsonConvert.DeserializeObject<userResponse>(resultado);
+            if (response.StatusCode == HttpStatusCode.Created)
+            {
+                await DisplayAlert("Bienvenido", "Ha iniciado sesión como: " + UserName.ToString(), "OK");
+                await Shell.Current.GoToAsync($"//AboutView");
+
+            }
+            else if (response.StatusCode == HttpStatusCode.Forbidden)
+            {
+                await DisplayAlert("Error", "Usuario y/o contraseña erroneas", "Aceptar");
             }
             else
             {
-                await DisplayAlert("Error", "Usuario y/o contraseña erroneas", "Aceptar");
-            } */
-
+                await DisplayAlert("Mensaje", "No hubo respuesta del Servidor", "OK");
+            }
+            //await Shell.Current.GoToAsync($"//AboutView");
+            UserName = "";
+            Password = "";
         }
         #endregion
 

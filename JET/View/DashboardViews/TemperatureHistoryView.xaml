@@ -8,8 +8,7 @@
         <ScrollView>
             <Grid>
                 <StackLayout>
-                    <Frame BackgroundColor="#87CEFA"
-                       CornerRadius="15">
+                    <Frame>
                         <Label Text="Historial Temperaturas"
                        FontSize="25"
                        FontAttributes="Bold"
@@ -21,93 +20,39 @@
                 </StackLayout>
                 <StackLayout>
                     <Grid RowDefinitions="*,*" ColumnDefinitions="*,*">
-                        <Label Text="Temperatura"
-                           FontSize="20"
-                           Margin="30,20,10,0"
-                           Padding="10,10,10,10"
+                        <Label Text="Temperatura Limite"
+                           FontSize="15"
+                           FontAttributes="Bold"
+                           Margin="30,0,0,0"
+                           Padding="20,10,10,10"
                            TextColor="Black"
                            Grid.Row="2"/>
-                        <Entry Placeholder="20°"
+                        <Label Text="{Binding limitTemperaturas.sensor.temperatureLimit}"
                            BackgroundColor="#87CEFA"
                            FontSize="20"
-                           Margin="5,10,30,0"
+                           Margin="0,0,150,0"
                            TextColor="Black"
                            Grid.Row="2"
                            Grid.Column="1"
                            />
                     </Grid>
                     <Grid>
-                        <TableView Margin="30">
-                            <TableRoot>
-                                <TableSection>
-                                    <ViewCell>
-                                        <StackLayout>
-                                            <Label Text="Historial"
-                                               FontSize="20"
-                                               FontAttributes="Bold"
-                                               HorizontalOptions="CenterAndExpand"
-                                               TextColor="Black"/>
-                                        </StackLayout>
-                                    </ViewCell>
-                                    <ViewCell>
+                        <StackLayout>
+                            <CollectionView ItemsSource="{Binding Temperaturas}">
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+
                                         <StackLayout Orientation="Horizontal">
-                                            <Label Text="Temepratura"
-                                               TextColor="Black"
-                                               FontAttributes="Bold"/>
-                                            <Label Text="Grados"
-                                               FontAttributes="Bold"
-                                               TextColor="Black"
-                                               HorizontalOptions="EndAndExpand"/>
+                                            <Label Text="Normal" HorizontalOptions="StartAndExpand"
+                                                   Padding="20,10,0,0" FontSize="15" FontAttributes="Bold"/>
+                                            <Label Text="{Binding temperature}" Padding="0,10,20,10"
+                                                   FontSize="15" HorizontalOptions="EndAndExpand"/>
                                         </StackLayout>
-                                    </ViewCell>
-                                    <ViewCell>
-                                        <StackLayout Orientation="Horizontal">
-                                            <Label Text="Normal"
-                                               TextColor="Black"/>
-                                            <Label Text="20°"
-                                               TextColor="Black"
-                                               HorizontalOptions="EndAndExpand"/>
-                                        </StackLayout>
-                                    </ViewCell>
-                                    <ViewCell>
-                                        <StackLayout Orientation="Horizontal">
-                                            <Label Text="Normal"
-                                               TextColor="Black"/>
-                                            <Label Text="18°"
-                                               TextColor="Black"
-                                               HorizontalOptions="EndAndExpand"/>
-                                        </StackLayout>
-                                    </ViewCell>
-                                    <ViewCell>
-                                        <StackLayout Orientation="Horizontal">
-                                            <Label Text="Anormal"
-                                               TextColor="Black"/>
-                                            <Label Text="30°"
-                                               TextColor="Black"
-                                               HorizontalOptions="EndAndExpand"/>
-                                        </StackLayout>
-                                    </ViewCell>
-                                    <ViewCell>
-                                        <StackLayout Orientation="Horizontal">
-                                            <Label Text="Normal"
-                                               TextColor="Black"/>
-                                            <Label Text="19°"
-                                               TextColor="Black"
-                                               HorizontalOptions="EndAndExpand"/>
-                                        </StackLayout>
-                                    </ViewCell>
-                                    <ViewCell>
-                                        <StackLayout Orientation="Horizontal">
-                                            <Label Text="Anormal"
-                                               TextColor="Black"/>
-                                            <Label Text="31°"
-                                               TextColor="Black"
-                                               HorizontalOptions="EndAndExpand"/>
-                                        </StackLayout>
-                                    </ViewCell>
-                                </TableSection>
-                            </TableRoot>
-                        </TableView>
+
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </StackLayout>
                     </Grid>
                 </StackLayout>
             </Grid>

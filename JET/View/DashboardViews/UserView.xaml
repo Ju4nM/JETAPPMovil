@@ -15,27 +15,31 @@
                 <StackLayout Spacing="30">
                     <StackLayout>
                         <Label Style="{StaticResource LabelRegistroUsuarios}" Text="Nombres" />
-                        <Entry Placeholder="Nombres" />
+                        <Entry Placeholder="Nombres" Text="{Binding names}"/>
                     </StackLayout>
                     <StackLayout>
-                        <Label Style="{StaticResource LabelRegistroUsuarios}" Text="Apellidos" />
-                        <Entry Placeholder="Apellidos" />
+                        <Label Style="{StaticResource LabelRegistroUsuarios}" Text="Apellido Paterno" />
+                        <Entry Placeholder="Apellido Paterno" Text="{Binding apellidopaterno}"/>
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Style="{StaticResource LabelRegistroUsuarios}" Text="Apellido Materno" />
+                        <Entry Placeholder="Apellido Materno" Text="{Binding apellidomaterno}"/>
                     </StackLayout>
                     <StackLayout>
                         <Label Style="{StaticResource LabelRegistroUsuarios}" Text="Nombre de usuario" />
-                        <Entry Placeholder="Nombre de usuario" />
+                        <Entry Placeholder="Nombre de usuario" Text="{Binding UserName}"/>
+                    </StackLayout>
+                    <StackLayout>
+                        <Label Style="{StaticResource LabelRegistroUsuarios}" Text="Email" />
+                        <Entry Placeholder="Email"  Text="{Binding Email}"/>
                     </StackLayout>
                     <StackLayout>
                         <Label Style="{StaticResource LabelRegistroUsuarios}" Text="Contraseña" />
-                        <Entry Placeholder="Contraseña" IsPassword="True" />
-                    </StackLayout>
-                    <StackLayout>
-                        <Label Style="{StaticResource LabelRegistroUsuarios}" Text="Repita la contraseña" />
-                        <Entry Placeholder="Contraseña" IsPassword="True" />
+                        <Entry Placeholder="Contraseña" IsPassword="True" Text="{Binding Password}"/>
                     </StackLayout>
                     <FlexLayout JustifyContent="SpaceBetween">
-                        <Button Text="Limpiar" BackgroundColor="#ef4444" Padding="10" />
-                        <Button Text="Registrar" BackgroundColor="#16a34a" Padding="10" />
+                        <Button Text="Limpiar" BackgroundColor="#ef4444" Padding="10" Command="{Binding limpiarcomand}"/>
+                        <Button Text="Registrar" BackgroundColor="#16a34a" Padding="10" Command="{Binding AddUserCommand}" />
                     </FlexLayout>
                 </StackLayout>
             </Frame>

@@ -9,6 +9,7 @@
                 <Setter Property="FontSize" Value="20" />
             </Style>
             <Color x:Key="Primary">#3b82f6</Color>
+            <Color x:Key="Danger">#ef4444</Color>
         </ResourceDictionary>
     </Application.Resources>
 </Application>

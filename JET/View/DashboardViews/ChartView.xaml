@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="JET.View.DashboardViews.ChartView"
              Title="Graficas"
+             xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
              Visual="Material">
     <Grid>
         <StackLayout BackgroundColor="#87CEFA">
@@ -12,6 +13,8 @@
                FontAttributes="Bold"
                HorizontalOptions="Center"/>
             <Image Source="Grafico.png"></Image>
+            <!--<WebView Source="http://jetapptest.somee.com/#/today-chart" HeightRequest="100" />-->
+            <WebView Source="http://jetapptest.somee.com/#/today-chart" HeightRequest="200" android:WebView.MixedContentMode="AlwaysAllow" />
             <Label Text="Ir a Graficas"
                    TextColor="Black"
                    FontSize="25"

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JET.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace JET.View.DashboardViews
         public UserView()
         {
             InitializeComponent();
+            BindingContext = new VMUsers(Navigation);
         }
     }
 }

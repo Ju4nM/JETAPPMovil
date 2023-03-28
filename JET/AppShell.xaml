@@ -72,6 +72,52 @@
         </Tab>
     </FlyoutItem>
 
-    <MenuItem Text="Logout" StyleClass="MenuItemLayoutStyle" Clicked="OnMenuItemClicked">
-    </MenuItem>
+
+
+    <Shell.FlyoutHeaderTemplate>
+        <DataTemplate>
+            <StackLayout Margin="0, 0, 0, 10">
+                <FlexLayout HorizontalOptions="CenterAndExpand" Padding="20" JustifyContent="SpaceBetween" AlignItems="Center">
+                    <StackLayout HorizontalOptions="StartAndExpand" Spacing="20">
+                        <Frame BackgroundColor="{StaticResource Primary}" CornerRadius="100" HorizontalOptions="CenterAndExpand">
+                            <Label Text="Administrador" TextColor="Black" FontSize="15" FontAttributes="Bold"/>
+                        </Frame>
+                        <StackLayout Orientation="Horizontal" Spacing="10">
+                            <Label Text="Usuario:" FontSize="20" TextColor="Black"/>
+                            <Label Text="Tomas" FontAttributes="Bold" FontSize="20" TextColor="Black" />
+                        </StackLayout>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Spacing="10">
+                        <Image Source="JetLogo.png" HeightRequest="120"/> 
+                    </StackLayout>
+                </FlexLayout>
+                <BoxView 
+                   HeightRequest="1"
+                   Color="LightGray"
+                   Margin ="5, 0, 5, 0"/>
+            </StackLayout>
+        </DataTemplate>
+    </Shell.FlyoutHeaderTemplate>
+
+    <Shell.FlyoutFooterTemplate>
+        <DataTemplate>
+            <StackLayout Padding="30, 20" Spacing="20">
+                <Frame CornerRadius="100" BackgroundColor="{StaticResource Primary}">
+                    <StackLayout Orientation="Horizontal" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand">
+                        <Image Source="bells.png" HeightRequest="15" />
+                        <Label Text="Notificaciones" FontSize="15" TextColor="Black" TextTransform="Uppercase"/>
+                    </StackLayout>
+                </Frame>
+                <Frame CornerRadius="100" BackgroundColor="{StaticResource Danger}">
+                    <StackLayout Orientation="Horizontal" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand">
+                        <Image Source="signOut.png" HeightRequest="15" />
+                        <Label Text="Cerrar sesión" FontSize="15" TextColor="Black" TextTransform="Uppercase"/>
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding LogOutCommand}" />
+                    </Frame.GestureRecognizers>
+                </Frame>
+            </StackLayout>
+        </DataTemplate>
+    </Shell.FlyoutFooterTemplate>
 </Shell>
