@@ -34,17 +34,17 @@ namespace JET.ViewModel
         }
         #endregion
         #region PROCESOS
-        public async Task ProcesoAsyncrono()
-        {
+        //public async Task ProcesoAsyncrono()
+        //{
 
-        }
+        //}
         public void procesoSimple()
         {
 
         }
         #endregion
         #region COMANDOS
-        public ICommand ProcesoAsyncomand => new Command(async () => await ProcesoAsyncrono());
+        //public ICommand ProcesoAsyncomand => new Command(async () => await ProcesoAsyncrono());
         public ICommand ProcesoSimpcomand => new Command(procesoSimple);
         #endregion
     }

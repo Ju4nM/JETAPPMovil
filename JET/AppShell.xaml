@@ -55,7 +55,7 @@
         <ShellContent Route="ControlView" ContentTemplate="{DataTemplate views:ControlView}" />
     </FlyoutItem>
 
-    <FlyoutItem Title="Usuarios">
+    <FlyoutItem Title="Usuarios" IsVisible="{Binding UserLogged.userType}">
         <ShellContent Route="UserView" ContentTemplate="{DataTemplate views:UserListView}" />
     </FlyoutItem>
 
@@ -80,11 +80,11 @@
                 <FlexLayout HorizontalOptions="CenterAndExpand" Padding="20" JustifyContent="SpaceBetween" AlignItems="Center">
                     <StackLayout HorizontalOptions="StartAndExpand" Spacing="20">
                         <Frame BackgroundColor="{StaticResource Primary}" CornerRadius="100" HorizontalOptions="CenterAndExpand">
-                            <Label Text="Administrador" TextColor="Black" FontSize="15" FontAttributes="Bold"/>
+                            <Label Text="{Binding UserTypeText}" TextColor="Black" FontSize="15" FontAttributes="Bold"/>
                         </Frame>
                         <StackLayout Orientation="Horizontal" Spacing="10">
                             <Label Text="Usuario:" FontSize="20" TextColor="Black"/>
-                            <Label Text="Tomas" FontAttributes="Bold" FontSize="20" TextColor="Black" />
+                            <Label Text="{Binding UserLogged.userName}" FontAttributes="Bold" FontSize="20" TextColor="Black" />
                         </StackLayout>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" Spacing="10">

@@ -7,6 +7,8 @@ using System.Windows.Input;
 using Newtonsoft.Json;
 using System.Net.Http;
 using System.Net;
+using System.Diagnostics;
+using JET.Models;
 
 namespace JET.ViewModel
 {
@@ -52,12 +54,6 @@ namespace JET.ViewModel
             public string userName { get; set; }
             public string password { get; set; }
         }
-        public class userResponse
-        {
-            public string id { get; set; }
-            public string userName { get; set; }
-            public string userType { get; set; }
-        }
         public async Task Login()
         {
 
@@ -72,11 +68,22 @@ namespace JET.ViewModel
             var cliente = new HttpClient();
             var response = await cliente.PostAsync(requestUri, contentjson);
             var resultado = await response.Content.ReadAsStringAsync();
-            var respuesta = JsonConvert.DeserializeObject<userResponse>(resultado);
+            var respuesta = JsonConvert.DeserializeObject<MUserLogged>(resultado);
             if (response.StatusCode == HttpStatusCode.Created)
             {
+                // save locally
+                Application.Current.Properties["id"] = respuesta.id;
+                Application.Current.Properties["userName"] = respuesta.userName;
+                Application.Current.Properties["userType"] = respuesta.userType;
+                Application.Current.Properties["isLogged"] = true;
+
+                // Notify appshell
+                MessagingCenter.Send(respuesta, "LoginSuccess");
+
+                await Application.Current.SavePropertiesAsync();
                 await DisplayAlert("Bienvenido", "Ha iniciado sesión como: " + UserName.ToString(), "OK");
                 await Shell.Current.GoToAsync($"//AboutView");
+
 
             }
             else if (response.StatusCode == HttpStatusCode.Forbidden)
@@ -85,6 +92,7 @@ namespace JET.ViewModel
             }
             else
             {
+                //Debug.WriteLine(resultado);
                 await DisplayAlert("Mensaje", "No hubo respuesta del Servidor", "OK");
             }
             //await Shell.Current.GoToAsync($"//AboutView");

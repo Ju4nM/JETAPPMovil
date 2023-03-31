@@ -11,7 +11,10 @@ namespace JET
         {
             InitializeComponent();
 
-            // MainPage = new NavigationPage(new LoginView());
+            Properties["isLogged"] = false;
+            Properties["id"] = string.Empty;
+            Properties["userName"] = string.Empty;
+            Properties["userType"] = false;
             MainPage = new AppShell();
         }
 
