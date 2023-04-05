@@ -71,15 +71,11 @@ namespace JET.ViewModel
         public VMUsers(INavigation nav)
         {
             Navigation = nav;
-            ExtraerApi();
+            _ = ExtraerApi();
         }
         #endregion
 
         #region Procesos
-        //public async Task AddUser()
-        //{
-        //    await Shell.Current.GoToAsync($"//UserView");
-        //}
         public void Limpiar()
         {
             names = "";
@@ -93,24 +89,7 @@ namespace JET.ViewModel
         {
             Users = await UserCrud.ExtraerApi();
         }
-        //public class Auth 
-        //{
-        //    public string Names { get; set; }
-        //    public string password { get; set; }
-        //    public string email { get; set; }
-        //    public string firstLastName { get; set; }
-        //    public string secondLastName { get; set; }
-        //    public string userName { get; set; }
-        //};
-        //public class Responce
-        //{
-        //    public string Names { get; set; }
-        //    public string password { get; set; }
-        //    public string email { get; set; }
-        //    public string firstLastName { get; set; }
-        //    public string secondLastName { get; set; }
-        //    public string userName { get; set; }
-        //};
+
         public async Task AgregarUsuario()
         {
             var nuevousuario = new UserModel()

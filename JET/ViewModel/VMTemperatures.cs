@@ -25,9 +25,9 @@ namespace JET.ViewModel
         public VMTemperatures(INavigation navigation)
         {
             Navigation = navigation;
-            ExtraerTemperatura();
-            ExtraerTemLimite();
-            ExtraerTemActual();
+            _ = ExtraerTemperatura();
+            _ = ExtraerTemLimite();
+            _ = ExtraerTemActual();
 
         }
         #endregion
@@ -61,11 +61,11 @@ namespace JET.ViewModel
         #region PROCESOS
         public async Task ExtraerTemperatura()
         {
-            Temperaturas = await UserCrud.ExtraerTemperatura();
+            Temperaturas = await DTemperatures.ExtraerTemperatura();
         }
         public async Task ExtraerTemLimite()
         {
-            limitTemperaturas = await UserCrud.ExtraerTemLimite();
+            limitTemperaturas = await DTemperatures.ExtraerTemLimite();
             if(limitTemperaturas.rele.state == true)
             {
                 Testigo = "Encendido";
@@ -77,7 +77,7 @@ namespace JET.ViewModel
         }
         public async Task ExtraerTemActual()
         {
-            TemActual = await UserCrud.ExtraerTemActual();  
+            TemActual = await DTemperatures.ExtraerTemActual();  
         }
         public void procesoSimple()
         {

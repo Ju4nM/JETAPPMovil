@@ -56,7 +56,12 @@
     </FlyoutItem>
 
     <FlyoutItem Title="Usuarios" IsVisible="{Binding UserLogged.userType}">
-        <ShellContent Route="UserView" ContentTemplate="{DataTemplate views:UserListView}" />
+        <Tab Title="Usuarios">
+            <ShellContent Route="UserView" ContentTemplate="{DataTemplate views:UserListView}" />
+        </Tab>
+        <Tab Title="Registro de usuarios">
+            <ShellContent Route="UserRegistration" ContentTemplate="{DataTemplate views:UserView}" />
+        </Tab>
     </FlyoutItem>
 
     <FlyoutItem Title="Graficas">
