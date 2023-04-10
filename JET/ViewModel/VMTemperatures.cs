@@ -17,7 +17,7 @@ namespace JET.ViewModel
         public string _Testigo;
         
         ObservableCollection<Temperatures> _Temperaturas;
-        LimitTemperatures _LimitTemperaturas;
+        MDevice _LimitTemperaturas;
         Temperatures _TemActual;
         #endregion
         #region CONSTRUCTOR
@@ -47,7 +47,7 @@ namespace JET.ViewModel
             get { return _TemActual; }
             set { SetValue(ref _TemActual, value); }
         }
-        public LimitTemperatures limitTemperaturas
+        public MDevice limitTemperaturas
         {
             get { return _LimitTemperaturas; }
             set { SetValue(ref _LimitTemperaturas, value); }
@@ -63,9 +63,10 @@ namespace JET.ViewModel
         {
             Temperaturas = await DTemperatures.ExtraerTemperatura();
         }
+        // TODO: Corregir funcion inferior
         public async Task ExtraerTemLimite()
         {
-            limitTemperaturas = await DTemperatures.ExtraerTemLimite();
+            limitTemperaturas = await DDevices.GetDeviceData();
             if(limitTemperaturas.rele.state == true)
             {
                 Testigo = "Encendido";

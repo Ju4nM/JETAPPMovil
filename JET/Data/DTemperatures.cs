@@ -11,7 +11,7 @@ namespace JET.Data
 {
     public class DTemperatures
     {
-        static string url = "https://jetapi.onrender.com";
+        static string url = $"{AppConfig.url}/temperatures";
 
         //peticion para temperatura actual
         public static async Task<Temperatures> ExtraerTemActual()
@@ -19,7 +19,7 @@ namespace JET.Data
             try
             {
                 var request = new HttpRequestMessage();
-                request.RequestUri = new Uri($"{url}/temperatures/last");
+                request.RequestUri = new Uri($"{url}/last");
                 request.Method = HttpMethod.Get;
                 request.Headers.Add("Accept", "application/json");
                 var cliente = new HttpClient();
@@ -42,13 +42,12 @@ namespace JET.Data
             }
         }
 
-        //peticion temperatura historial
         public static async Task<ObservableCollection<Temperatures>> ExtraerTemperatura()
         {
             try
             {
                 var request = new HttpRequestMessage();
-                request.RequestUri = new Uri($"{url}/temperatures");
+                request.RequestUri = new Uri(url);
                 request.Method = HttpMethod.Get;
                 request.Headers.Add("Accept", "application/json");
                 var cliente = new HttpClient();
@@ -58,34 +57,6 @@ namespace JET.Data
                     string contenido = await response.Content.ReadAsStringAsync();
                     var resultado = JsonConvert.DeserializeObject<ObservableCollection<Temperatures>>(contenido);
 
-                    return resultado;
-                }
-                else
-                {
-                    return null;
-                }
-            }
-            catch
-            {
-                return null;
-            }
-        }
-        //peticion de temperatura limite
-        public static async Task<LimitTemperatures> ExtraerTemLimite()
-        {
-            try
-            {
-                var request = new HttpRequestMessage();
-                request.RequestUri = new Uri($"{url}/devices/current");
-                request.Method = HttpMethod.Get;
-                request.Headers.Add("Accept", "application/json");
-                var cliente = new HttpClient();
-                HttpResponseMessage response = await cliente.SendAsync(request);
-                if (response.StatusCode == System.Net.HttpStatusCode.OK)
-                {
-                    string contenido = await response.Content.ReadAsStringAsync();
-                    var resultado = JsonConvert.DeserializeObject<LimitTemperatures>(contenido);
-                    
                     return resultado;
                 }
                 else

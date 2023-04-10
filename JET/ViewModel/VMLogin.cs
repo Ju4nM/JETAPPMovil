@@ -19,6 +19,7 @@ namespace JET.ViewModel
         string _userName;
         string _password;
 
+        string url = AppConfig.url;
         //List<UserModel> _usuario;
         #endregion
 
@@ -64,12 +65,12 @@ namespace JET.ViewModel
             };
             var json = JsonConvert.SerializeObject(user);
             var contentjson = new StringContent(json, Encoding.UTF8, "application/json");
-            Uri requestUri = new Uri("https://jetapi.onrender.com/auth");
+            Uri requestUri = new Uri($"{url}/auth");
             var cliente = new HttpClient();
             var response = await cliente.PostAsync(requestUri, contentjson);
             var resultado = await response.Content.ReadAsStringAsync();
             var respuesta = JsonConvert.DeserializeObject<MUserLogged>(resultado);
-            if (response.StatusCode == HttpStatusCode.Created)
+            if (response.StatusCode == HttpStatusCode.OK)
             {
                 // save locally
                 Application.Current.Properties["id"] = respuesta.id;

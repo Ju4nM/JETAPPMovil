@@ -13,14 +13,14 @@ namespace JET.Data
     public class UserCrud 
     {
         //url del servidor web de nuestra api
-        static string url = "https://jetapi.onrender.com";
+        static string url = $"{AppConfig.url}/users";
         //peticion de usuarios
         public static async Task<ObservableCollection<UserModel>> ExtraerApi()
         {
             try
             {
                 var request = new HttpRequestMessage();
-                request.RequestUri = new Uri($"{url}/users");
+                request.RequestUri = new Uri(url);
                 request.Method = HttpMethod.Get;
                 request.Headers.Add("Accept", "application/json");
                 var cliente = new HttpClient();

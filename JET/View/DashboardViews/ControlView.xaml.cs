@@ -16,7 +16,7 @@ namespace JET.View.DashboardViews
         public ControlView()
         {
             InitializeComponent();
-            BindingContext = new VMTemperatures(Navigation);
+            BindingContext = new VMControl(Navigation);
         }
     }
 }

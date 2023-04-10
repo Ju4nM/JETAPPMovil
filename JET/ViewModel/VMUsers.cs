@@ -25,6 +25,8 @@ namespace JET.ViewModel
         string _firstlastname1;
         string _firstlastname2;
         ObservableCollection<UserModel> _users;
+
+        string url = $"{AppConfig.url}/users";
         #endregion
         #region Objetos
         public ObservableCollection<UserModel> Users
@@ -103,14 +105,14 @@ namespace JET.ViewModel
             };
             var json = JsonConvert.SerializeObject(nuevousuario);
             var contentjson = new StringContent(json, Encoding.UTF8, "application/json");
-            Uri requestUri = new Uri("https://jetapi.onrender.com/users");
+            Uri requestUri = new Uri(url);
             var cliente = new HttpClient();
             var response = await cliente.PostAsync(requestUri, contentjson);
             var resultado = await response.Content.ReadAsStringAsync();
             var respuesta = JsonConvert.DeserializeObject<UserModel>(resultado);
             if (response.StatusCode == HttpStatusCode.Created)
             {
-                await DisplayAlert("Nuevo Usuario", "Te dammos la bienvenida", "OK");
+                await DisplayAlert("Nuevo Usuario", "Te damos la bienvenida", "OK");
 
 
             }
