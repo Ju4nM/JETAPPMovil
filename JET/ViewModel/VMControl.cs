@@ -8,6 +8,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace JET.ViewModel
@@ -126,7 +127,8 @@ namespace JET.ViewModel
 
         public void RedirectToBrowser ()
         {
-            Device.OpenUri(new Uri("http://jetapptest.somee.com/#/today-chart"));
+            //Device.OpenUri(new Uri("http://jetapptest.somee.com/#/today-chart"));
+            Launcher.CanOpenAsync(new Uri("http://jetapptest.somee.com/#/today-chart"));
         }
 
         #region commands
