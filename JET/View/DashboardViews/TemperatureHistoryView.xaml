@@ -4,6 +4,9 @@
              Title="Historial de temperaturas"
              Visual="Material"
              x:Class="JET.View.DashboardViews.TemperatureHistoryView">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Actualizar" Command="{Binding ReloadCommand}"/>
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <ScrollView>
             <Grid>

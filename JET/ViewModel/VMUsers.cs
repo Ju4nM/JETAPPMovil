@@ -127,6 +127,15 @@ namespace JET.ViewModel
             Password = "";
             Email = "";
         }
+
+        public async Task ReloadData ()
+        {
+            await ExtraerApi();
+        }
+        #endregion
+
+        #region commands
+        public ICommand ReloadCommand => new Command(async () => await ReloadData());
         #endregion
     }
 }

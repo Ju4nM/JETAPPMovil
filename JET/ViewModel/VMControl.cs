@@ -74,6 +74,7 @@ namespace JET.ViewModel
         }
         public void Init ()
         {
+            deviceDataLoaded = false;
             _ = ExtraerTemActual();
             _ = GetDeviceData();
         }
@@ -107,6 +108,7 @@ namespace JET.ViewModel
             }
             string content = await response.Content.ReadAsStringAsync();
             ToggledFanResponse responseDeserialized = JsonConvert.DeserializeObject<ToggledFanResponse>(content);
+            //FanStatus = responseDeserialized.releStatus;
             SetProperty(ref _fanStatus, responseDeserialized.releStatus);
         }
 
@@ -127,14 +129,15 @@ namespace JET.ViewModel
 
         public void RedirectToBrowser ()
         {
-            //Device.OpenUri(new Uri("http://jetapptest.somee.com/#/today-chart"));
-            Launcher.CanOpenAsync(new Uri("http://jetapptest.somee.com/#/today-chart"));
+            Device.OpenUri(new Uri("http://jetapptest.somee.com/#/today-chart"));
+            //Launcher.CanOpenAsync(new Uri("http://jetapptest.somee.com/#/today-chart"));
         }
 
         #region commands
         public ICommand UpdateLimitCommand => new Command(async () => await UpdateTemperatureLimit());
 
         public ICommand OpenWebAppCommand => new Command(RedirectToBrowser);
+        public ICommand ReloadCommand => new Command(Init);
         #endregion
     }
 }

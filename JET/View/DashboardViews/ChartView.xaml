@@ -29,9 +29,10 @@
                     VerticalOptions="Center"
                     CornerRadius="10"
                     HeightRequest="50"
-                    WidthRequest="120"/>
+                    WidthRequest="120"
+                        Command="{Binding OpenWebAppCommand}"/>
             </Grid>
-            <Label Text="Pagina Web para checar graficas"
+            <Label Text="Abrir en el navegador"
                    FontSize="20"
                    FontAttributes="Italic"
                    TextColor="Black"

@@ -76,6 +76,12 @@ namespace JET.ViewModel
                 Testigo = "Apagado";
             }
         }
+        public void ReloadData ()
+        {
+            _ = ExtraerTemperatura();
+            _ = ExtraerTemLimite();
+            _ = ExtraerTemActual();
+        }
         public async Task ExtraerTemActual()
         {
             TemActual = await DTemperatures.ExtraerTemActual();  
@@ -88,6 +94,7 @@ namespace JET.ViewModel
         #region COMANDOS
         //public ICommand ProcesoAsyncomand => new Command(async () => await ExtraerTemperatura());
         public ICommand ProcesoSimpcomand => new Command(procesoSimple);
+        public ICommand ReloadCommand => new Command(ReloadData);
         #endregion
     }
 }

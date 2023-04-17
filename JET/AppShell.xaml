@@ -107,12 +107,12 @@
     <Shell.FlyoutFooterTemplate>
         <DataTemplate>
             <StackLayout Padding="30, 20" Spacing="20">
-                <Frame CornerRadius="100" BackgroundColor="{StaticResource Primary}">
+                <!--<Frame CornerRadius="100" BackgroundColor="{StaticResource Primary}">
                     <StackLayout Orientation="Horizontal" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand">
                         <Image Source="bells.png" HeightRequest="15" />
                         <Label Text="Notificaciones" FontSize="15" TextColor="Black" TextTransform="Uppercase"/>
                     </StackLayout>
-                </Frame>
+                </Frame>-->
                 <Frame CornerRadius="100" BackgroundColor="{StaticResource Danger}">
                     <StackLayout Orientation="Horizontal" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand">
                         <Image Source="signOut.png" HeightRequest="15" />

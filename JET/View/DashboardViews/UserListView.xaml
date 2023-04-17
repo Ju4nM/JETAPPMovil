@@ -5,9 +5,9 @@
              Title="Usuarios"
              x:Class="JET.View.DashboardViews.UserListView">
 
-    <!--<ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Command="{Binding AddUserCommand}" />
-    </ContentPage.ToolbarItems>-->
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Actualizar" Command="{Binding ReloadCommand}" />
+    </ContentPage.ToolbarItems>
     <ScrollView>
 
         <Grid>
