@@ -90,7 +90,7 @@ namespace JET.ViewModel
         {
             Dispositivos = await DDevices.GetDeviceData();
             FanStatus = Dispositivos.rele.state;
-            Testigo = FanStatus ? "Encendido" : "Apagado";
+            //Testigo = FanStatus ? "Encendido" : "Apagado";
             CurrentLimit = LimitToDisplay = int.Parse(Dispositivos.sensor.temperatureLimit);
             deviceDataLoaded = true;
         }
