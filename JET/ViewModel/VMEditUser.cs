@@ -1,6 +1,4 @@
-﻿using JET.Data;
-using JET.Models;
-using JET.View.DashboardViews;
+﻿using JET.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -14,36 +12,47 @@ using Xamarin.Forms;
 
 namespace JET.ViewModel
 {
-    public class VMUsers: BaseViewModel
+    public class VMEditUser : BaseViewModel
     {
-
-        #region Variables
+        #region VARIABLES
+        string _id;
         string _email;
         string _name;
         string _username;
         string _password;
         string _firstlastname1;
         string _firstlastname2;
-        ObservableCollection<UserModel> _users;
-
+        ObservableCollection<UserModel> _editarUser;
         string url = $"{AppConfig.url}/users";
+
         #endregion
-        #region Objetos
-        public ObservableCollection<UserModel> Users
+        #region CONSTRUCTOR
+        public VMEditUser(INavigation navigation)
         {
-            get { return _users; }
+            Navigation = navigation;
+        }
+        #endregion
+        #region OBJETOS
+        public ObservableCollection<UserModel> EditarUsers
+        {
+            get { return _editarUser; }
             set
             {
-                SetProperty(ref _users, value);
+                SetProperty(ref _editarUser, value);
                 OnpropertyChanged();
             }
+        }
+        public string ID
+        {
+            get { return _id; }
+            set { SetProperty(ref _id, value); }
         }
         public string Email
         {
             get { return _email; }
             set { SetProperty(ref _email, value); }
         }
-        public string names
+        public string Names
         {
             get { return _name; }
             set { SetProperty(ref _name, value); }
@@ -70,79 +79,49 @@ namespace JET.ViewModel
             set { SetProperty(ref _firstlastname2, value); }
         }
         #endregion
-
-        #region Constructor
-        public VMUsers(INavigation nav)
+        #region PROCESOS
+        public async Task UserEdit()
         {
-            Navigation = nav;
-            _ = ExtraerApi();
-        }
-        #endregion
-
-        #region Procesos
-        public void Limpiar()
-        {
-            names = "";
-            apellidopaterno = "";
-            apellidomaterno = "";
-            UserName = "";
-            Password = "";
-            Email = "";
-        }
-        public async Task ExtraerApi()
-        {
-            Users = await UserCrud.ExtraerApi();
-        }
-
-        public async Task AgregarUsuario()
-        {
-            var nuevousuario = new UserModel()
+            var EditarUsuario = new UserModel
             {
-                names = names,
+                id = ID,
+                names = Names,
                 firstLastName = apellidopaterno,
                 secondLastName = apellidomaterno,
                 userName = UserName,
                 email = Email,
-                password = Password
+                password = Password,
             };
-            var json = JsonConvert.SerializeObject(nuevousuario);
+            var json = JsonConvert.SerializeObject(EditarUsuario);
             var contentjson = new StringContent(json, Encoding.UTF8, "application/json");
-            Uri requestUri = new Uri(url);
+            Uri requestUri = new Uri($"https://jetapi.onrender.com/users/{ID}");
             var cliente = new HttpClient();
-            var response = await cliente.PostAsync(requestUri, contentjson);
+            var response = await cliente.PutAsync(requestUri, contentjson);
             var resultado = await response.Content.ReadAsStringAsync();
             var respuesta = JsonConvert.DeserializeObject<UserModel>(resultado);
-            if (response.StatusCode == HttpStatusCode.Created)
+
+            if (response.StatusCode == HttpStatusCode.OK)
             {
-                await DisplayAlert("Sistema", "Te damos la bienvenida", "Aceptar");
+                await DisplayAlert("Mensaje", "Usuario editado con exito", "Aceptar");
 
 
             }
             else
             {
-                await DisplayAlert("Error", "No se pudo añadir el usuario", "Aceptar");
+                await DisplayAlert("Error", "No se pudo editar el usuario", "Aceptar");
             }
-            names = "";
+            ID = "";
+            Names = "";
             apellidopaterno = "";
             apellidomaterno = "";
             UserName = "";
-            Password = "";
             Email = "";
-        }
-        public async Task EditarUser()
-        {
-            await Shell.Current.GoToAsync(nameof(EditUser));
-        }
-        public async Task DeleteUsuario()
-        {
-            await Shell.Current.GoToAsync(nameof(DeleteUser));
+            Password = "";
         }
         #endregion
-        #region Comandos
-        public ICommand AddUserCommand => new Command(async () => await AgregarUsuario());
-        public ICommand EditarUserCommand => new Command(async () => await EditarUser());
-        public ICommand borrarCommand => new Command(async () => await DeleteUsuario());
-        public ICommand limpiarcomand => new Command(Limpiar);
+        #region COMANDOS
+        //public ICommand ProcesoAsyncomand => new Command(async () => await modificarUser());
+        public ICommand UserEditcomand => new Command(async () => await UserEdit());
         #endregion
     }
 }

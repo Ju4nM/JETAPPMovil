@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="JET.View.DashboardViews.DeleteUser">
+    <StackLayout Padding="20" BackgroundColor="#87CEFA" Spacing="35">
+        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+            <Image Source="Bajatemperatura.png"
+                       HeightRequest="150" />
+            <Label VerticalTextAlignment="Center" FontSize="30" Text="Eliminar Usuario" TextColor="Black" />
+        </StackLayout>
+
+        <Frame BackgroundColor="#319CFF" CornerRadius="10">
+            <StackLayout Spacing="30">
+                <StackLayout>
+                    <Label Style="{StaticResource LabelRegistroUsuarios}" Text="ID" />
+                    <Entry Placeholder="ID" Text="{Binding ID}"/>
+                </StackLayout>
+                <FlexLayout JustifyContent="SpaceBetween">
+                    <Button Text="Eliminar" BackgroundColor="red" Padding="10" Command="{Binding DeleteCommand}" />
+                </FlexLayout>
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+</ContentPage>

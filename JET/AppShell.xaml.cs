@@ -1,4 +1,5 @@
-﻿using JET.ViewModel;
+﻿using JET.View.DashboardViews;
+using JET.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,8 @@ namespace JET
         public AppShell()
         {
             InitializeComponent();
+            Routing.RegisterRoute(nameof(EditUser), typeof(EditUser));
+            Routing.RegisterRoute(nameof(DeleteUser), typeof(DeleteUser));
             BindingContext = new VMAppShell(Navigation);
         }
     }
